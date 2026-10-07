@@ -33,8 +33,12 @@ public class ObstacleController : MonoBehaviour
 
         Debug.Log(transform == tf);
 
-        rb.mass = size * 2;
+    }
 
+
+    void Update()
+    {
+        
     }
 
 }

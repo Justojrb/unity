@@ -268,7 +268,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4105362945620786469, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
       propertyPath: m_Name
-      value: Wizard (3)
+      value: myPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 4105362945620786471, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
       propertyPath: m_LocalScale.y
@@ -324,6 +324,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4105362945620786469, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
       insertIndex: -1
       addedObject: {fileID: 186503247}
+    - targetCorrespondingSourceObject: {fileID: 4105362945620786469, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 186503251}
   m_SourcePrefab: {fileID: 100100000, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
 --- !u!1 &186503246 stripped
 GameObject:
@@ -403,6 +406,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &186503251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186503246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5129b99c958dd274ea3e3ee414cae429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Playercontroller
+  rb: {fileID: 186503248}
 --- !u!1001 &264771964
 PrefabInstance:
   m_ObjectHideFlags: 0
