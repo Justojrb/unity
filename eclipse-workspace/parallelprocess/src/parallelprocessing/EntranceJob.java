@@ -1,0 +1,29 @@
+package parallelprocessing;
+
+import models.Aparcamiento;
+
+
+public class EntranceJob extends Thread {
+
+	private Aparcamiento parking;
+
+	// Initialize the parking object through the constructor
+	public EntranceJob(Aparcamiento parking, String name) {
+		super(name);
+		this.parking = parking;
+	}
+
+	@Override
+	public void run() {
+		String threadName = Thread.currentThread().getName();
+		System.out.println("Start the job with thread " + threadName);
+		System.out.println(parking + " object address from thread " + threadName);
+
+		for (int i = 0; i < 80000; i++) {
+			parking.entrarCoche();
+		}
+
+		System.out.println("End the job with thread " + threadName);
+	}
+
+}

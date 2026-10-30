@@ -1,0 +1,56 @@
+package models;
+
+public class Aparcamiento {
+	private String ciudad;
+	private String nombre;
+	private int aforoMaximo;
+	private int cochesAparcados;
+
+	public Aparcamiento(String ciudad, String nombre, int aforoMaximo) {
+		this.ciudad = ciudad;
+		this.nombre = nombre;
+		this.aforoMaximo = aforoMaximo;
+		this.cochesAparcados = 0;
+	}
+
+// Sección crítica: synchronized evita que dos hilos modifiquen
+// el contador a la vez (condición de carrera)
+	public void entrarCoche() {
+		if (cochesAparcados < aforoMaximo) {
+			cochesAparcados++;
+			System.out.println("[ENTRADA] " + nombre + " (" + ciudad + ") -> " + cochesAparcados + "/" + aforoMaximo);
+		} else {
+			System.out.println("[ENTRADA] " + nombre + " LLENO. Coche rechazado.");
+		}
+	}
+
+	public void salirCoche() {
+		if (cochesAparcados > 0) {
+			cochesAparcados--;
+			System.out.println("[SALIDA] " + nombre + " (" + ciudad + ") -> " + cochesAparcados + "/" + aforoMaximo);
+		} else {
+			System.out.println("[SALIDA] " + nombre + " VACÍO. No hay coches que sacar.");
+		}
+	}
+
+	public int getCochesAparcados() {
+		return cochesAparcados;
+	}
+
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public int getAforoMaximo() {
+		return aforoMaximo;
+	}
+
+	@Override
+	public String toString() {
+		return nombre + " (" + ciudad + ") - " + cochesAparcados + "/" + aforoMaximo + " plazas";
+	}
+}
