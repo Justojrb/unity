@@ -14,6 +14,8 @@ public class ObstacleController : MonoBehaviour
     private float minTorque = 20f;
     [SerializeField]
     private float maxTorque = 48f;
+    private AudioSource audioSource;   // Sonido de la explosión
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,7 +35,18 @@ public class ObstacleController : MonoBehaviour
 
         Debug.Log(transform == tf);
 
+
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+    }
+
 
 
     void Update()
